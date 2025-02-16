@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Exists... We Exist</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@300&display=swap');
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .text {
+            font-size: 2rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .fade-container {
+            width: 6ch; /* Adjusted width to prevent overlap */
+            display: inline-block;
+            text-align: right;
+        }
+        .fade {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            display: inline-block;
+            transition: opacity 2s ease-in-out;
+        }
+        .thin {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <div class="text">
+        <span class="fade-container">
+            <span class="fade" id="fadeText">Water</span>
+        </span> <span class="thin">Exists</span>
+    </div>
+    <script>
+        const fadeText = document.getElementById('fadeText');
+        const words = ['Water', 'We'];
+        let index = 0;
+
+        setInterval(() => {
+            fadeText.style.opacity = 0;
+            setTimeout(() => {
+                index = (index + 1) % words.length;
+                fadeText.textContent = words[index];
+                fadeText.style.opacity = 1;
+            }, 1000);
+        }, 3000);
+    </script>
+</body>
+</html>
