@@ -3,61 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Water Exists... We Exist</title>
+    <title>One Earth - Impact Statement</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;700&display=swap');
         body {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #ffffff; /* Changed to pure white */
+            padding-left: 20px;
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff; /* Matches Notion's background */
         }
         .text {
             font-size: 2rem;
-            text-align: center;
+            text-align: left;
             display: flex;
-            justify-content: center;
             align-items: center;
         }
         .fade-container {
-            width: 6ch; /* Adjusted width to prevent overlap */
+            width: 7ch; /* Ensures space remains fixed */
             display: inline-block;
-            text-align: right;
+            text-align: left;
         }
         .fade {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            font-weight: 200; /* Thinner weight */
             display: inline-block;
-            transition: opacity 2s ease-in-out;
+            transition: opacity 3s ease-in-out;
         }
-        .thin {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 300;
+        .bold {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
-    <div class="text">
+    <div class="text" id="textContainer">
+        <span class="bold">One</span> 
         <span class="fade-container">
-            <span class="fade" id="fadeText">Water</span>
-        </span> <span class="thin">Exists</span>
+            <span class="fade" id="fadeText">Earth</span>
+        </span>
     </div>
     <script>
         const fadeText = document.getElementById('fadeText');
-        const words = ['Water', 'We'];
+        const words = ['Earth', 'Life', 'Source', 'Chance', 'Density'];
         let index = 0;
 
-        setInterval(() => {
+        function fadeSequence() {
             fadeText.style.opacity = 0;
             setTimeout(() => {
                 index = (index + 1) % words.length;
                 fadeText.textContent = words[index];
                 fadeText.style.opacity = 1;
-            }, 1000);
-        }, 3000);
+                
+                if (words[index] === 'Density') {
+                    fadeText.classList.add('bold');
+                } else {
+                    fadeText.classList.remove('bold');
+                }
+            }, 1500); // Slower transition
+        }
+
+        setInterval(fadeSequence, 5000);
     </script>
 </body>
 </html>
