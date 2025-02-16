@@ -23,7 +23,7 @@
             align-items: center;
         }
         .fade-container {
-            width: 7ch; /* Ensures space remains fixed */
+            width: auto;
             display: inline-block;
             text-align: left;
         }
@@ -41,8 +41,7 @@
 </head>
 <body>
     <div class="text" id="textContainer">
-        <span class="bold">One</span> 
-        <span class="fade-container">
+        <span class="bold" id="oneText">One</span><span class="fade-container">
             <span class="fade" id="fadeText">Earth</span>
         </span>
     </div>
@@ -63,10 +62,13 @@
                 } else {
                     fadeText.classList.remove('bold');
                 }
-            }, 1500); // Slower transition
+                
+                let delay = words[index] === 'Density' ? 8000 : 3000; // Keep Density for 8s, others for 3s
+                setTimeout(fadeSequence, delay);
+            }, 3000); // Ensure previous word fully fades out before next fades in
         }
 
-        setInterval(fadeSequence, 5000);
+        fadeSequence(); // Start sequence immediately
     </script>
 </body>
 </html>
