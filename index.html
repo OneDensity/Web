@@ -17,7 +17,7 @@
             background-color: #ffffff; /* Matches Notion's background */
         }
         .text {
-            font-size: 2rem;
+            font-size: 4rem; /* Doubled size */
             text-align: left;
             display: flex;
             align-items: center;
@@ -47,7 +47,7 @@
     </div>
     <script>
         const fadeText = document.getElementById('fadeText');
-        const words = ['Earth', 'Life', 'Source', 'Chance', 'Density'];
+        const words = ['Earth', 'Life', 'Chance', 'Density'];
         let index = 0;
 
         function fadeSequence() {
@@ -63,7 +63,7 @@
                     fadeText.classList.remove('bold');
                 }
                 
-                let delay = words[index] === 'Density' ? 8000 : 3000; // Keep Density for 8s, others for 3s
+                let delay = words[index] === 'Density' ? 10000 : 2000; // Keep Density for 10s, others for 2s
                 setTimeout(fadeSequence, delay);
             }, 3000); // Ensure previous word fully fades out before next fades in
         }
