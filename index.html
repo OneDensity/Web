@@ -50,6 +50,10 @@
         const words = ['Earth', 'Life', 'Chance', 'Density'];
         let index = 0;
 
+        // Ensure Earth starts first and is visible initially
+        fadeText.textContent = words[index];
+        fadeText.style.opacity = 1;
+
         function fadeSequence() {
             fadeText.style.opacity = 0;
             setTimeout(() => {
@@ -68,7 +72,8 @@
             }, 3000); // Ensure previous word fully fades out before next fades in
         }
 
-        fadeSequence(); // Start sequence immediately
+        // Delay the start of the sequence so Earth is visible first
+        setTimeout(fadeSequence, 2000);
     </script>
 </body>
 </html>
